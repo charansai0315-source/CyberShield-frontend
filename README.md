@@ -27,7 +27,7 @@ frontend/
 
 ### Local Development
 You can serve `index.html` using any local static file server:
-```bash
+```bash 
 # Using Python
 python -m http.server 3000
 
@@ -36,9 +36,12 @@ npx http-server -p 3000
 ```
 
 ### Docker
-```bash
+```bashcd "C:\Users\Charan sai\Documents\Codex\2026-10-06\go-x20\outputs\cybershield"
 docker build -t cybershield-frontend .
 docker run -p 3000:80 cybershield-frontend
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+
+1
