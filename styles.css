@@ -204,11 +204,11 @@ tbody tr:hover { background: #fbfcfd; }
 .confidence-track span { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #16b591, #7ed9bd); transition: width .4s ease; }
 .result-content > p { min-height: 28px; margin-top: 10px; color: #778597; font-size: 9px; line-height: 1.55; }
 .result-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 11px; padding-top: 9px; border-top: 1px solid #edf2f1; color: #a0abb5; font-size: 8px; }
-.note-card { display: flex; gap: 10px; padding: 13px 14px; border: 1px solid #f3e9d7; border-radius: 9px; background: #fffaf2; }
-.note-icon { display: grid; flex: 0 0 auto; place-items: center; width: 24px; height: 24px; border-radius: 7px; color: #d49738; background: #fff1d9; }
+.note-card { display: flex; gap: 10px; padding: 13px 14px; border: 1px solid #d8eee7; border-radius: 9px; background: #f5fcf9; }
+.note-icon { display: grid; flex: 0 0 auto; place-items: center; width: 24px; height: 24px; border-radius: 7px; color: #18b795; background: #e3f7f1; }
 .note-icon svg { width: 14px; height: 14px; }
-.note-card strong { display: block; margin-top: 1px; color: #8c6b36; font-size: 9px; }
-.note-card p { margin-top: 4px; color: #a18b67; font-size: 8px; line-height: 1.5; }
+.note-card strong { display: block; margin-top: 1px; color: #176f5c; font-size: 9px; font-weight: 700; }
+.note-card p { margin-top: 4px; color: #4e8376; font-size: 8px; line-height: 1.5; }
 .page-footer { display: flex; justify-content: space-between; gap: 15px; margin-top: 17px; padding: 12px 2px 0; border-top: 1px solid #e9edf1; color: #a1aab6; font-size: 8px; }
 .footer-sep { padding: 0 4px; color: #c1c8d0; }
 .toast { position: fixed; right: 24px; bottom: 22px; z-index: 10; max-width: min(360px, calc(100vw - 32px)); padding: 12px 15px; border: 1px solid #d7e8e3; border-radius: 8px; color: #376b5e; background: #f4fcf9; box-shadow: 0 10px 35px rgba(24,47,57,.14); font-size: 10px; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .18s, transform .18s; }
