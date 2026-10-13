@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111d32">
+  <title>CyberShield | Network Security</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#overview" aria-label="CyberShield overview">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M16 3.5 27 7.7v7.7c0 7-4.8 11.5-11 13.1C9.8 26.9 5 22.4 5 15.4V7.7L16 3.5Z" stroke="currentColor" stroke-width="2.3"/><path d="m11.5 15.9 3 3 6.5-7" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-copy"><strong>CyberShield</strong><small>NETWORK INTELLIGENCE</small></span>
+      </a>
+
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <a class="nav-link active" href="#overview">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="4" rx="1.5"/><rect x="14" y="10" width="7" height="11" rx="1.5"/><rect x="3" y="13" width="7" height="8" rx="1.5"/></svg>
+          <span>Overview</span><span class="nav-indicator"></span>
+        </a>
+        <a class="nav-link" href="#activity">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2.5-7L14 19l2.5-7H21"/></svg>
+          <span>Traffic activity</span>
+        </a>
+        <a class="nav-link" href="#analyze">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M10.8 7.5v6.6M7.5 10.8h6.6"/></svg>
+          <span>Analyze traffic</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="model-card">
+          <div class="model-card-top"><span class="pulse-dot"></span><span>MODEL STATUS</span></div>
+          <strong id="model-status-side">Connecting</strong>
+          <small id="model-detail-side">Waiting for classifier</small>
+          <div class="model-meter"><span></span></div>
+          <div class="model-card-foot"><span>Random forest</span><span>v1.0</span></div>
+        </div>
+        <div class="sidebar-caption">CyberShield <span>•</span> Academic demo</div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><strong>Overview</strong></div>
+        <div class="topbar-actions">
+          <div class="connection-state"><span class="state-dot" id="api-dot"></span><span id="api-status">Connecting to services</span></div>
+          <button class="icon-button" id="refresh-button" type="button" aria-label="Refresh dashboard" title="Refresh dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.1 9a6.5 6.5 0 0 1 11-2L20 12M4 12l2.9 5a6.5 6.5 0 0 0 11-2"/></svg>
+          </button>
+          <div class="avatar" aria-label="CyberShield demo">CS</div>
+        </div>
+      </header>
+
+      <div class="page-wrap">
+        <section class="page-intro">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> SECURITY OPERATIONS CENTER</div>
+            <h1>Network overview</h1>
+            <p>Monitor traffic patterns and review machine learning detections across your network.</p>
+          </div>
+          <div class="intro-actions">
+            <div class="date-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3.5 10h17"/></svg><span id="today-label">Today</span></div>
+            <button class="button button-primary" id="load-demo-button" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg> Load demo data
+            </button>
+          </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Traffic summary">
+          <article class="stat-card">
+            <div class="stat-top"><span>Total analyzed</span><span class="stat-icon blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h13"/><circle cx="18" cy="12" r="3"/></svg></span></div>
+            <div class="stat-value" id="stat-total">—</div>
+            <div class="stat-foot"><span class="trend-neutral"><span class="tiny-dot"></span> All time</span><span>Traffic flows</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Threats detected</span><span class="stat-icon orange"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 20H3L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg></span></div>
+            <div class="stat-value" id="stat-threats">—</div>
+            <div class="stat-foot"><span class="trend-alert"><span class="tiny-dot"></span> Needs review</span><span id="stat-threat-rate">0% of flows</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Benign activity</span><span class="stat-icon green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/><circle cx="12" cy="12" r="9"/></svg></span></div>
+            <div class="stat-value" id="stat-benign">—</div>
+            <div class="stat-foot"><span class="trend-good"><span class="tiny-dot"></span> Cleared</span><span>Classified as safe</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Model confidence</span><span class="stat-icon violet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="4.5"/></svg></span></div>
+            <div class="stat-value" id="stat-confidence">—</div>
+            <div class="stat-foot"><span class="trend-neutral"><span class="tiny-dot"></span> Average</span><span>Demo model score</span></div>
+          </article>
+        </section>
+
+        <section class="overview-grid">
+          <article class="panel activity-panel" id="activity">
+            <div class="panel-heading">
+              <div><div class="panel-title-row"><h2>Recent traffic activity</h2><span class="live-pill"><span></span> LIVE</span></div><p>Latest analyzed network flows</p></div>
+              <label class="search-box" for="activity-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="activity-search" type="search" placeholder="Search flows" autocomplete="off"></label>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>FLOW</th><th>PROTOCOL</th><th>CLASSIFICATION</th><th>SEVERITY</th><th>CONFIDENCE</th><th>TIME</th></tr></thead>
+                <tbody id="activity-rows"><tr><td colspan="6" class="empty-cell"><span class="empty-glyph">◌</span>Waiting for traffic data</td></tr></tbody>
+              </table>
+            </div>
+            <div class="table-footer"><span id="activity-count">No flows yet</span><span class="table-footer-note"><span class="live-dot"></span> Updating as traffic is analyzed</span></div>
+          </article>
+
+          <article class="panel category-panel">
+            <div class="panel-heading compact-heading"><div><h2>Detection categories</h2><p>Distribution across analyzed flows</p></div><span class="heading-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M6 16V9m4 7V5m4 11v-4m4 4V7"/></svg></span></div>
+            <div class="category-total"><strong id="category-total">0</strong><span>flows analyzed</span></div>
+            <div id="category-bars" class="category-bars" aria-live="polite"></div>
+            <div class="chart-caption"><span class="chart-caption-dot"></span> Classifications from the current model</div>
+          </article>
+        </section>
+
+        <section class="lower-grid">
+          <article class="panel analyze-panel" id="analyze">
+            <div class="panel-heading form-heading">
+              <div><div class="panel-title-row"><span class="section-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M10.8 7.5v6.6M7.5 10.8h6.6"/></svg></span><h2>Analyze a traffic flow</h2></div><p>Enter flow-level features to classify a connection.</p></div>
+              <span class="api-badge">REST API</span>
+            </div>
+            <form id="analysis-form">
+              <div class="form-grid">
+                <label class="field"><span>Protocol</span><select name="protocol" required><option value="TCP">TCP</option><option value="UDP">UDP</option><option value="ICMP">ICMP</option></select></label>
+                <label class="field"><span>Flow duration <small>ms</small></span><input name="flowDurationMs" type="number" min="0" value="4200" required></label>
+                <label class="field"><span>Source IP</span><input name="sourceIp" type="text" value="10.0.0.24" maxlength="64" required></label>
+                <label class="field"><span>Destination IP</span><input name="destinationIp" type="text" value="10.0.0.8" maxlength="64" required></label>
+                <label class="field"><span>Source port</span><input name="sourcePort" type="number" min="0" max="65535" value="52344" required></label>
+                <label class="field"><span>Destination port</span><input name="destinationPort" type="number" min="0" max="65535" value="443" required></label>
+                <label class="field"><span>Packets forward</span><input name="packetsForward" type="number" min="0" value="48" required></label>
+                <label class="field"><span>Packets backward</span><input name="packetsBackward" type="number" min="0" value="42" required></label>
+                <label class="field"><span>Bytes forward</span><input name="bytesForward" type="number" min="0" value="22000" required></label>
+                <label class="field"><span>Bytes backward</span><input name="bytesBackward" type="number" min="0" value="31000" required></label>
+                <label class="field"><span>Failed logins</span><input name="failedLogins" type="number" min="0" max="10000" value="0" required></label>
+              </div>
+              <div class="form-bottom"><span class="form-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg> Results are saved to traffic history.</span><button class="button button-primary" id="analyze-button" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg> Analyze flow</button></div>
+            </form>
+          </article>
+
+          <aside class="side-stack">
+            <article class="result-card" id="result-card">
+              <div class="result-card-top"><div class="result-label"><span class="result-shield"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 6v5.6c0 5.1-3.5 8.3-8 9.5-4.5-1.2-8-4.4-8-9.5V6l8-3Z"/><path d="m8.7 12 2.1 2.1 4.7-5"/></svg></span><span>LAST ANALYSIS</span></div><span class="result-chip" id="result-severity">READY</span></div>
+              <div class="result-empty" id="result-empty"><div class="result-orbit"><span></span><i></i><b></b></div><strong>Your results will appear here</strong><p>Submit a flow or load the sample activity to see a classification.</p></div>
+              <div class="result-content hidden" id="result-content"><div class="result-category" id="result-category">—</div><div class="result-confidence"><span>Model confidence</span><strong id="result-confidence-value">—</strong></div><div class="confidence-track"><span id="result-confidence-bar"></span></div><p id="result-summary">—</p><div class="result-meta"><span id="result-source">—</span><span id="result-time">Just now</span></div></div>
+            </article>
+            <article class="note-card">
+              <div class="note-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 20H3L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg></div>
+              <div><strong>Demo model</strong><p id="model-note-text">Predictions use generated sample traffic. Validate with a representative dataset before operational use.</p></div>
+            </article>
+          </aside>
+        </section>
+
+        <footer class="page-footer"><span>CyberShield <span class="footer-sep">/</span> Intelligent Network Intrusion Detection</span><span id="last-updated">Waiting for first sync</span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
